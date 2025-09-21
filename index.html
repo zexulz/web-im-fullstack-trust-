@@ -16,6 +16,7 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             color: white;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* Fallback gradient */
         }
         
         .glass {
@@ -61,18 +62,50 @@
             min-width: 100%;
             min-height: 100%;
             z-index: -1;
+            /* Show a message if video fails to load */
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        }
+        
+        .video-overlay {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
         }
         
         .viewer-count {
             font-feature-settings: "tnum";
             font-variant-numeric: tabular-nums;
         }
+        
+        /* Video error message */
+        .video-error {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            z-index: 999;
+            display: none;
+        }
     </style>
 </head>
 <body class="min-h-screen">
-    <!-- Video Background -->
-    <video autoplay muted loop id="video-bg">
+    <!-- Video error message -->
+    <div class="video-error" id="video-error">
+        Video background couldn't load. Using fallback background.
+    </div>
+    
+    <!-- Video Background with overlay -->
+    <div class="video-overlay"></div>
+    <video autoplay muted loop id="video-bg" onerror="document.getElementById('video-error').style.display='block'">
         <source src="vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
     </video>
     
     <!-- Audio (hidden) -->
@@ -195,6 +228,11 @@
                 console.log("Audio playback failed:", e);
             });
         }, { once: true });
+        
+        // Check if video loaded successfully
+        document.getElementById('video-bg').addEventListener('error', function() {
+            document.getElementById('video-error').style.display = 'block';
+        });
     </script>
 </body>
 </html>
