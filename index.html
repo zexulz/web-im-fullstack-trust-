@@ -33,7 +33,10 @@
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
     }
+
+    .glass:hover { transform: translateY(-3px); }
 
     .glass-dark {
         background: rgba(0, 0, 0, 0.3);
@@ -46,36 +49,13 @@
         transition: all 0.3s ease;
         transform: scale(1);
     }
-
-    .enter-btn:hover {
-        transform: scale(1.05);
-    }
-
-    .social-btn {
-        transition: all 0.3s ease;
-    }
-
-    .social-btn:hover {
-        transform: translateY(-3px);
-    }
+    .enter-btn:hover { transform: scale(1.05); }
 
     #main-content {
         opacity: 0;
         transition: opacity 0.8s ease;
         position: relative;
         z-index: 1;
-    }
-
-    .video-error {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: rgba(0,0,0,0.7);
-        padding: 10px 15px;
-        border-radius: 8px;
-        font-size: 14px;
-        z-index: 999;
-        display: none;
     }
 
     /* Video overlay */
@@ -89,26 +69,37 @@
         z-index: -1;
     }
 
+    /* Video error */
+    .video-error {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(0,0,0,0.7);
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-size: 14px;
+        z-index: 999;
+        display: none;
+    }
 </style>
 </head>
 <body class="min-h-screen">
 
-<!-- Video background -->
-<video id="video-bg" autoplay muted loop playsinline poster="fallback.jpg" 
+<!-- Video background (paused initially) -->
+<video id="video-bg" muted loop playsinline
        style="position: fixed; top:0; left:0; width:100%; height:100%; object-fit: cover; z-index: -2;">
     <source src="vid.mp4" type="video/mp4">
     Your browser does not support the video tag.
 </video>
 
 <div class="video-overlay"></div>
-
 <div class="video-error" id="video-error">Video background couldn't load. Using fallback background.</div>
 
 <!-- Landing Screen -->
 <div id="landing" class="fixed inset-0 flex items-center justify-center z-50 transition-opacity duration-1000">
     <div class="text-center">
         <h1 class="text-5xl md:text-7xl font-bold mb-8" data-aos="fade-down">ZEXULZ</h1>
-        <button id="enter-btn" class="enter-btn glass px-12 py-4 rounded-full text-xl font-medium" 
+        <button id="enter-btn" class="enter-btn glass px-12 py-4 rounded-full text-xl font-medium"
                 data-aos="fade-up" data-aos-delay="300">
             ENTER
         </button>
@@ -117,18 +108,16 @@
 
 <!-- Main Content -->
 <div id="main-content" class="min-h-screen p-6 md:p-12">
-
     <!-- Header -->
     <header class="flex justify-between items-center mb-16">
         <div class="glass px-6 py-3 rounded-full">
             <span class="viewer-count">1,337</span> VIEWERS
         </div>
-        
         <div class="flex space-x-4">
-            <a href="https://tiktok.com" target="_blank" class="social-btn glass w-12 h-12 rounded-full flex items-center justify-center">
+            <a href="https://tiktok.com" target="_blank" class="glass w-12 h-12 rounded-full flex items-center justify-center">
                 <i data-feather="music"></i>
             </a>
-            <a href="https://spotify.com" target="_blank" class="social-btn glass w-12 h-12 rounded-full flex items-center justify-center">
+            <a href="https://spotify.com" target="_blank" class="glass w-12 h-12 rounded-full flex items-center justify-center">
                 <i data-feather="play"></i>
             </a>
         </div>
@@ -140,7 +129,7 @@
         <p class="text-xl md:text-2xl opacity-80 mb-12 max-w-2xl" data-aos="fade-up" data-aos-delay="100">
             Digital creator blending technology and art to build immersive experiences.
         </p>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             <div class="glass p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
                 <h3 class="text-xl font-medium mb-3">Development</h3>
@@ -179,56 +168,45 @@
     </footer>
 </div>
 
-<!-- Audio (hidden) -->
-<audio autoplay loop id="bg-audio">
+<!-- Audio -->
+<audio id="bg-audio" loop>
     <source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <script>
     // Initialize AOS
     AOS.init({ duration: 800, once: true });
-
     // Feather icons
     feather.replace();
 
-    const video = document.getElementById('video-bg');
-    const videoError = document.getElementById('video-error');
     const enterBtn = document.getElementById('enter-btn');
     const landing = document.getElementById('landing');
     const mainContent = document.getElementById('main-content');
+    const video = document.getElementById('video-bg');
     const bgAudio = document.getElementById('bg-audio');
+    const videoError = document.getElementById('video-error');
     const viewerElement = document.querySelector('.viewer-count');
 
-    // Try autoplay for video
-    video.play().catch(() => console.log("Video autoplay blocked."));
-
-    // Video error handling
-    video.addEventListener('error', () => videoError.style.display = 'block');
-
-    // Enter button click
     enterBtn.addEventListener('click', () => {
+        // Start video & audio
+        video.play().catch(() => videoError.style.display = 'block');
+        bgAudio.play().catch(() => console.log("Audio blocked"));
+
+        // Fade landing screen
         landing.style.opacity = '0';
         setTimeout(() => {
             landing.style.display = 'none';
             mainContent.style.opacity = '1';
-            
-            // Audio play
-            bgAudio.play().catch(e => console.log("Audio playback blocked", e));
-
-            // Viewer simulation
-            let count = 1337;
-            setInterval(() => {
-                count += Math.floor(Math.random() * 3);
-                viewerElement.textContent = count.toLocaleString();
-            }, 3000);
         }, 1000);
-    });
 
-    // Force audio/video play on first interaction (mobile)
-    document.addEventListener('click', () => {
-        video.play().catch(() => {});
-        bgAudio.play().catch(() => {});
-    }, { once: true });
+        // Viewer count simulation
+        let count = 1337;
+        setInterval(() => {
+            count += Math.floor(Math.random() * 3);
+            viewerElement.textContent = count.toLocaleString();
+        }, 3000);
+    });
 </script>
+
 </body>
 </html>
