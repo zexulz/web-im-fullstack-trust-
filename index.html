@@ -322,12 +322,12 @@
     
     bgAudio.volume = volumeSlider.value;
 
-    // Volume slider control
+    
     volumeSlider.addEventListener('input', (e) => {
         bgAudio.volume = e.target.value;
     });
 
-    // Create particle background
+    
     function createParticles() {
         const particlesContainer = document.getElementById('particles');
         const particleCount = 30;
@@ -336,7 +336,7 @@
             const particle = document.createElement('div');
             particle.classList.add('particle');
             
-            // Random properties
+            
             const size = Math.random() * 10 + 2;
             const posX = Math.random() * 100;
             const posY = Math.random() * 100;
@@ -353,7 +353,7 @@
         }
     }
     
-    // Cascade animation for elements
+    
     function animateCascadeElements() {
         const elements = document.querySelectorAll('.cascade-fade-in');
         elements.forEach((el, index) => {
@@ -378,6 +378,36 @@
 
     
     createParticles();
+
+    
+const zexulzTitles = document.querySelectorAll('.wave-text');
+
+zexulzTitles.forEach(title => {
+    title.addEventListener('click', () => {
+
+        
+
+        
+        const toast = document.createElement('div');
+        toast.textContent = 'Made by rayzz';
+        toast.style.position = 'fixed';
+        toast.style.bottom = '20px';
+        toast.style.right = '20px';
+        toast.style.background = 'rgba(0,0,0,0.8)';
+        toast.style.color = 'white';
+        toast.style.padding = '10px 15px';
+        toast.style.borderRadius = '8px';
+        toast.style.zIndex = '9999';
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.5s ease';
+        document.body.appendChild(toast);
+
+        setTimeout(() => { toast.style.opacity = '1'; }, 100);
+        setTimeout(() => { toast.style.opacity = '0'; toast.remove(); }, 2500);
+        
+    });
+});
+
 </script>
 
 </body>
