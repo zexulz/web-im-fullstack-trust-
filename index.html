@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zexulz | Sleepy - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+    <div id="vanta-bg" class="vanta-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold gradient-text">Zexulz | Sleepy</div>
+        <div class="hidden md:flex space-x-8">
+            <a href="#skills" class="hover:text-blue-400 transition">Skills</a>
+            <a href="#stats" class="hover:text-blue-400 transition">Stats</a>
+            <a href="#services" class="hover:text-blue-400 transition">Services</a>
+            <a href="#pricing" class="hover:text-blue-400 transition">Pricing</a>
+        </div>
+        <button class="md:hidden">
+            <i data-feather="menu"></i>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-6 py-20 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6" data-aos="fade-down">
+            Full Stack <span class="gradient-text">Developer</span> & <br>
+            <span class="gradient-text">AI</span> Enthusiast
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="200">
+            Building modern web applications, automation tools, and AI solutions
+        </p>
+        <div class="flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="400">
+            <a href="#contact" class="px-8 py-3 bg-blue-600 rounded-lg font-medium hover:bg-blue-700 transition">Get in Touch</a>
+            <a href="#projects" class="px-8 py-3 border border-blue-400 rounded-lg font-medium hover:bg-blue-900/30 transition">View Work</a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container mx-auto px-6 py-20">
+        <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center gradient-text" data-aos="fade-down">Skills & Expertise</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Programming Languages -->
+            <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700" data-aos="fade-up">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-blue-900/30 rounded-lg mr-4">
+                        <i data-feather="code" class="text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Languages</h3>
+                </div>
+                <ul class="space-y-2">
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> JavaScript/TypeScript (Expert)</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> Python (Advanced)</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> C++ (Intermediate)</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> Java (Intermediate)</li>
+                </ul>
+            </div>
+
+            <!-- Web Development -->
+            <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-purple-900/30 rounded-lg mr-4">
+                        <i data-feather="globe" class="text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Web Development</h3>
+                </div>
+                <ul class="space-y-2">
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> React & Next.js</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> Node.js & Express</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> Tailwind CSS</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> REST & GraphQL APIs</li>
+                </ul>
+            </div>
+
+            <!-- Databases -->
+            <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-green-900/30 rounded-lg mr-4">
+                        <i data-feather="database" class="text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Databases</h3>
+                </div>
+                <ul class="space-y-2">
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> MongoDB</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> PostgreSQL</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> Firebase</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> Redis</li>
+                </ul>
+            </div>
+
+            <!-- DevOps -->
+            <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700" data-aos="fade-up">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-yellow-900/30 rounded-lg mr-4">
+                        <i data-feather="server" class="text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">DevOps</h3>
+                </div>
+                <ul class="space-y-2">
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> Docker & Kubernetes</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> AWS & GCP</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> CI/CD Pipelines</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> Nginx & Apache</li>
+                </ul>
+            </div>
+
+            <!-- Automation -->
+            <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-red-900/30 rounded-lg mr-4">
+                        <i data-feather="zap" class="text-red-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Automation</h3>
+                </div>
+                <ul class="space-y-2">
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> Discord Bots</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> Web Scraping</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> Browser Extensions</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> Scripting</li>
+                </ul>
+            </div>
+
+            <!-- AI/ML -->
+            <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-pink-900/30 rounded-lg mr-4">
+                        <i data-feather="cpu" class="text-pink-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">AI/ML</h3>
+                </div>
+                <ul class="space-y-2">
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> TensorFlow/PyTorch</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> NLP & Computer Vision</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> LLM Integration</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-4"></i> Data Analysis</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="container mx-auto px-6 py-20 bg-gray-800/30 backdrop-blur-sm">
+        <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center gradient-text" data-aos="fade-down">By The Numbers</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center" data-aos="fade-up">
+                <div class="text-6xl font-bold mb-2 gradient-text">0</div>
+                <h3 class="text-xl font-medium">Projects Completed</h3>
+            </div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-6xl font-bold mb-2 gradient-text">0</div>
+                <h3 class="text-xl font-medium">Happy Clients</h3>
+            </div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-6xl font-bold mb-2 gradient-text">0</div>
+                <h3 class="text-xl font-medium">Awards Won</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="container mx-auto px-6 py-20">
+        <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center gradient-text" data-aos="fade-down">Services Offered</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700" data-aos="fade-up">
+                <div class="flex items-center justify-center w-16 h-16 bg-blue-900/30 rounded-lg mb-6 mx-auto">
+                    <i data-feather="layout" class="text-blue-400 w-8 h-8"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center mb-4">Full-stack Web Apps</h3>
+                <p class="text-gray-400 text-center">
+                    Custom web applications with modern frameworks and scalable backends.
+                </p>
+            </div>
+            
+            <div class="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center justify-center w-16 h-16 bg-purple-900/30 rounded-lg mb-6 mx-auto">
+                    <i data-feather="message-square" class="text-purple-400 w-8 h-8"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center mb-4">Discord Bot Development</h3>
+                <p class="text-gray-400 text-center">
+                    Feature-rich bots for moderation, utilities, games, and community management.
+                </p>
+            </div>
+            
+            <div class="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center justify-center w-16 h-16 bg-pink-900/30 rounded-lg mb-6 mx-auto">
+                    <i data-feather="cpu" class="text-pink-400 w-8 h-8"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center mb-4">Machine Learning & AI</h3>
+                <p class="text-gray-400 text-center">
+                    Custom AI solutions, model training, and smart automation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="container mx-auto px-6 py-20 bg-gray-800/30 backdrop-blur-sm">
+        <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center gradient-text" data-aos="fade-down">Pricing</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <!-- Website Building -->
+            <div class="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700" data-aos="fade-up">
+                <h3 class="text-xl font-bold text-center mb-4">Website Building</h3>
+                <div class="text-4xl font-bold text-center mb-6">€199+</div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-5"></i> Simple contact/landing page</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-5"></i> 1–2 portfolio sections</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-5"></i> SEO-ready & mobile-friendly</li>
+                </ul>
+                <button class="w-full py-3 bg-blue-600 rounded-lg font-medium hover:bg-blue-700 transition">Get Started</button>
+            </div>
+            
+            <!-- Plugin Building -->
+            <div class="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border-2 border-blue-500 relative" data-aos="fade-up" data-aos-delay="100">
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">POPULAR</div>
+                <h3 class="text-xl font-bold text-center mb-4">Plugin Building</h3>
+                <div class="text-4xl font-bold text-center mb-6">€349+</div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-5"></i> Custom browser extensions</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-5"></i> Discord bots & automation scripts</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-5"></i> Lightweight API integrations</li>
+                </ul>
+                <button class="w-full py-3 bg-blue-600 rounded-lg font-medium hover:bg-blue-700 transition">Get Started</button>
+            </div>
+            
+            <!-- Advanced Projects -->
+            <div class="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-xl font-bold text-center mb-4">Advanced Projects</h3>
+                <div class="text-4xl font-bold text-center mb-6">€499+</div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-5"></i> AI & ML integrations</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-5"></i> Cloud deployments (AWS, Docker)</li>
+                    <li class="flex items-center"><i data-feather="check" class="mr-2 text-green-400 w-5"></i> Custom automation pipelines</li>
+                </ul>
+                <button class="w-full py-3 bg-blue-600 rounded-lg font-medium hover:bg-blue-700 transition">Get Started</button>
+            </div>
+        </div>
+        
+        <p class="text-center text-gray-400 mt-10 max-w-2xl mx-auto" data-aos="fade-up">
+            * Prices are starting points. Final cost depends on project complexity and requirements.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container mx-auto px-6 py-12 border-t border-gray-800">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="text-2xl font-bold gradient-text mb-4 md:mb-0">Zexulz | Sleepy</div>
+            <div class="flex space-x-6">
+                <a href="https://github.com/zexulz" class="text-gray-400 hover:text-blue-400 transition"><i data-feather="github"></i></a>
+                <a href="#"
+                 class="text-gray-400 hover:text-blue-400 transition"><i data-feather="twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition"><i data-feather="linkedin"></i></a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition"><i data-feather="mail"></i></a>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 mt-8 text-sm">
+            &copy; 2023 Zexulz | Sleepy. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        feather.replace();
+        
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0x111827,
+            size: 0.8
+        });
+    </script>
+</body>
+</html>
