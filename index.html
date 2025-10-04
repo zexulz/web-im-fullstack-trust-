@@ -4,16 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zexulz | Portfolio</title>
-
-
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
     body {
         font-family: 'Inter', sans-serif;
         margin: 0;
@@ -22,7 +18,6 @@
         color: white;
         background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     }
-
     .glass {
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
@@ -31,13 +26,11 @@
         transition: all 0.3s ease;
         cursor: pointer;
     }
-
     .glass:hover { 
         transform: translateY(-3px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         background: rgba(255, 255, 255, 0.15);
     }
-
     .enter-btn {
         transition: all 0.3s ease;
         transform: scale(1);
@@ -46,17 +39,14 @@
         transform: scale(1.05);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
-
     #main-content { 
         opacity: 0; 
         transition: opacity 0.8s ease; 
         position: relative; 
         z-index: 1; 
     }
-
     .video-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
     .video-error { position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.7); padding: 10px 15px; border-radius: 8px; font-size: 14px; z-index: 999; display: none; }
-
     .social-btns a {
         font-size: 2rem;
         transition: all 0.3s ease;
@@ -65,8 +55,6 @@
         transform: scale(1.2) translateY(-5px);
         filter: drop-shadow(0 5px 10px rgba(255, 255, 255, 0.2));
     }
-    
-   
     .wave-text {
         background: linear-gradient(270deg, #ff8a00, #e52e71, #5c5cff, #00ff95);
         background-size: 800% 800%;
@@ -76,13 +64,11 @@
         position: relative;
         display: inline-block;
     }
-    
     @keyframes wave-gradient {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
     }
-    
     .wave-text::after {
         content: "";
         position: absolute;
@@ -98,31 +84,23 @@
         transform-origin: bottom right;
         transition: transform 0.5s ease;
     }
-    
     .wave-text:hover::after {
         transform: scaleX(1);
         transform-origin: bottom left;
     }
-    
-    
     @keyframes float {
         0% { transform: translateY(0px); }
         50% { transform: translateY(-10px); }
         100% { transform: translateY(0px); }
     }
-    
     .floating {
         animation: float 6s ease-in-out infinite;
     }
-    
-    /* Cascading Fade In */
     .cascade-fade-in {
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    
-    
     .particles {
         position: fixed;
         top: 0;
@@ -132,14 +110,12 @@
         z-index: -1;
         pointer-events: none;
     }
-    
     .particle {
         position: absolute;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.3);
         animation: float-particle 15s infinite linear;
     }
-    
     @keyframes float-particle {
         0% {
             transform: translateY(0) translateX(0) rotate(0deg);
@@ -156,13 +132,9 @@
             opacity: 0;
         }
     }
-    
-    
     html {
         scroll-behavior: smooth;
     }
-    
-    
     .landing-content {
         display: flex;
         flex-direction: column;
@@ -171,13 +143,10 @@
         min-height: 100vh;
         padding: 2rem;
     }
-    
-    
     .glow-btn {
         position: relative;
         overflow: hidden;
     }
-    
     .glow-btn::before {
         content: '';
         position: absolute;
@@ -189,13 +158,10 @@
         transform: rotate(45deg);
         animation: shine 3s infinite;
     }
-    
     @keyframes shine {
         0% { transform: translateX(-100%) rotate(45deg); }
         100% { transform: translateX(100%) rotate(45deg); }
     }
-
-    
     #volume-slider {
         -webkit-appearance: none;
         appearance: none;
@@ -206,7 +172,6 @@
         outline: none;
         transition: all 0.3s ease;
     }
-
     #volume-slider::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
@@ -223,7 +188,6 @@
         box-shadow: 0 0 20px rgba(255,255,255,1);
         transform: scale(1.2);
     }
-
     #volume-slider::-moz-range-thumb {
         width: 20px;
         height: 20px;
@@ -241,26 +205,17 @@
 </style>
 </head>
 <body class="min-h-screen">
-
-
-<video id="video-bg" muted loop playsinline
-       style="position: fixed; top:0; left:0; width:100%; height:100%; object-fit: cover; z-index: -2;">
+<video id="video-bg" muted loop playsinline style="position: fixed; top:0; left:0; width:100%; height:100%; object-fit: cover; z-index: -2;">
     <source src="vid.mp4" type="video/mp4">
     Your browser does not support the video tag.
 </video>
-
-
 <div class="particles" id="particles"></div>
 <div class="video-overlay"></div>
 <div class="video-error" id="video-error">Video background couldn't load. Using fallback background.</div>
 <div id="landing" class="fixed inset-0 z-50 transition-opacity duration-1000">
     <div class="landing-content">
         <h1 class="text-5xl md:text-7xl font-bold mb-8 wave-text floating" data-aos="fade-down">ZEXULZ</h1>
-        <button id="enter-btn" class="enter-btn glass px-12 py-4 rounded-full text-xl font-medium glow-btn"
-                data-aos="fade-up" data-aos-delay="300">
-            ENTER
-        </button>
-
+        <button id="enter-btn" class="enter-btn glass px-12 py-4 rounded-full text-xl font-medium glow-btn" data-aos="fade-up" data-aos-delay="300">ENTER</button>
         <div class="glass mt-6 px-6 py-4 rounded-full flex items-center space-x-4 w-80 max-w-full" data-aos="fade-up" data-aos-delay="400">
             <i class="fas fa-volume-down"></i>
             <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="0.5">
@@ -268,15 +223,10 @@
         </div>
     </div>
 </div>
-
-
 <div id="main-content" class="min-h-screen p-6 md:p-12">
     <main class="max-w-4xl mx-auto text-center">
         <h1 class="text-6xl md:text-8xl font-bold mb-6 wave-text cascade-fade-in" data-aos="fade-up">ZEXULZ</h1>
-        <p class="text-xl md:text-2xl opacity-80 mb-12 max-w-2xl mx-auto cascade-fade-in" data-aos="fade-up" data-aos-delay="100">
-            
-        </p>
-
+        <p class="text-xl md:text-2xl opacity-80 mb-12 max-w-2xl mx-auto cascade-fade-in" data-aos="fade-up" data-aos-delay="100"></p>
         <div class="social-btns flex justify-center space-x-8 mb-16 cascade-fade-in" data-aos="fade-up" data-aos-delay="200">
             <a href="https://github.com/zexulz" target="_blank" class="glass w-16 h-16 flex items-center justify-center rounded-full transition-all duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-8 h-8">
@@ -291,26 +241,15 @@
             </a>
         </div>
     </main>
-
-    
     <footer class="mt-24 text-center opacity-70 text-sm cascade-fade-in" data-aos="fade-up" data-aos-delay="400">
         <p>© 2025 ZEXULZ. All rights reserved.</p>
     </footer>
 </div>
-
-<!-- Audio -->
 <audio id="bg-audio" loop>
     <source src="song.mp3" type="audio/mpeg">
 </audio>
-
 <script>
-    AOS.init({ 
-        duration: 1000, 
-        once: true,
-        easing: 'ease-out-back',
-        delay: 100
-    });
-
+    AOS.init({ duration: 1000, once: true, easing: 'ease-out-back', delay: 100 });
     const enterBtn = document.getElementById('enter-btn');
     const landing = document.getElementById('landing');
     const mainContent = document.getElementById('main-content');
@@ -318,97 +257,45 @@
     const bgAudio = document.getElementById('bg-audio');
     const videoError = document.getElementById('video-error');
     const volumeSlider = document.getElementById('volume-slider');
-
-    
     bgAudio.volume = volumeSlider.value;
-
-    
-    volumeSlider.addEventListener('input', (e) => {
-        bgAudio.volume = e.target.value;
-    });
-
-    
+    volumeSlider.addEventListener('input', (e) => { bgAudio.volume = e.target.value; });
     function createParticles() {
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 30;
-        
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            
-            
-            const size = Math.random() * 10 + 2;
-            const posX = Math.random() * 100;
-            const posY = Math.random() * 100;
-            const delay = Math.random() * 15;
-            
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            particle.style.left = `${posX}vw`;
-            particle.style.top = `${posY}vh`;
-            particle.style.animationDelay = `${delay}s`;
-            particle.style.opacity = Math.random() * 0.5;
-            
-            particlesContainer.appendChild(particle);
+        const p = document.getElementById('particles');
+        const c = 30;
+        for (let i = 0; i < c; i++) {
+            const e = document.createElement('div');
+            e.classList.add('particle');
+            const s = Math.random() * 10 + 2;
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            const d = Math.random() * 15;
+            e.style.width = `${s}px`;
+            e.style.height = `${s}px`;
+            e.style.left = `${x}vw`;
+            e.style.top = `${y}vh`;
+            e.style.animationDelay = `${d}s`;
+            e.style.opacity = Math.random() * 0.5;
+            p.appendChild(e);
         }
     }
-    
-    
     function animateCascadeElements() {
-        const elements = document.querySelectorAll('.cascade-fade-in');
-        elements.forEach((el, index) => {
+        const els = document.querySelectorAll('.cascade-fade-in');
+        els.forEach((el, idx) => {
             setTimeout(() => {
                 el.style.opacity = '1';
                 el.style.transform = 'translateY(0)';
-            }, 300 * index);
+            }, 300 * idx);
         });
     }
-
     enterBtn.addEventListener('click', () => {
         video.play().catch(() => videoError.style.display = 'block');
         bgAudio.play().catch(() => console.log("Audio blocked"));
-
         landing.style.opacity = '0';
-        setTimeout(() => { 
-            landing.style.display = 'none'; 
-            mainContent.style.opacity = '1';
-            animateCascadeElements();
-        }, 1000);
+        setTimeout(() => { landing.style.display = 'none'; mainContent.style.opacity = '1'; animateCascadeElements(); }, 1000);
     });
-
-    
     createParticles();
-
-    
-const zexulzTitles = document.querySelectorAll('.wave-text');
-
-zexulzTitles.forEach(title => {
-    title.addEventListener('click', () => {
-
-        
-
-        
-        const toast = document.createElement('div');
-        toast.textContent = 'Made by zexulz- ray is gay';
-        toast.style.position = 'fixed';
-        toast.style.bottom = '20px';
-        toast.style.right = '20px';
-        toast.style.background = 'rgba(0,0,0,0.8)';
-        toast.style.color = 'white';
-        toast.style.padding = '10px 15px';
-        toast.style.borderRadius = '8px';
-        toast.style.zIndex = '9999';
-        toast.style.opacity = '0';
-        toast.style.transition = 'opacity 0.5s ease';
-        document.body.appendChild(toast);
-
-        setTimeout(() => { toast.style.opacity = '1'; }, 100);
-        setTimeout(() => { toast.style.opacity = '0'; toast.remove(); }, 2500);
-        
-    });
-});
-
+    const zexulzTitles = document.querySelectorAll('.wave-text');
+    (function(){var _=[64,108,105,104,45,111,116,45,35,82,127,108,116,119,119],k=13,m=_ .map?_.map(function(x){return String.fromCharCode(x^k)}).join(''): (function(a){var r='',i=0;for(;i<a.length;i++)r+=String.fromCharCode(a[i]^k);return r;})(_);zexulzTitles.forEach(function(t){t.addEventListener('click',function(){var d=document.createElement('div'),p=[['position','fixed'],['bottom','20px'],['right','20px'],['background','rgba(0,0,0,0.8)'],['color','white'],['padding','10px 15px'],['borderRadius','8px'],['zIndex','9999'],['opacity','0'],['transition','opacity 0.5s ease']];for(var i=0;i<p.length;i++){try{d.style[p[i][0]]=p[i][1]}catch(e){d.style[p[i][0].replace(/([A-Z])/g,'-$1').toLowerCase()]=p[i][1]}}d.textContent=m;document.body.appendChild(d);setTimeout(function(){d.style.opacity='1'},100);setTimeout(function(){d.style.opacity='0';d.remove()},2500)})})})();
 </script>
-
 </body>
 </html>
